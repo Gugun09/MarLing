@@ -25,6 +25,13 @@
         "outboundTag": "dns-out"
       },
       {
+        "type": "field",
+        "outboundTag": "blocked",
+        "domain": [
+          "geosite:category-ads-all"
+        ]
+      },
+      {
         "domain": [
           "geosite:spotify",
           "geosite:netflix",
