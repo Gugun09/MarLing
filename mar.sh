@@ -205,6 +205,11 @@ mkdir -p /var/lib/marzban/assets
 mkdir -p /var/lib/marzban/core
 wget -O /var/lib/marzban/core/xray.zip "https://github.com/XTLS/Xray-core/releases/download/v1.8.16/Xray-linux-64.zip"  
 cd /var/lib/marzban/core && unzip xray.zip && chmod +x xray
+rm -f /var/lib/marzban/core/geosite.dat
+rm -f /var/lib/marzban/core/geoip.dat
+version=$(curl -s https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases | jq -r '.[]|.tag_name' | head -1)
+curl -Lo /var/lib/marzban/core/geosite.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/${version}/geosite.dat
+curl -Lo /var/lib/marzban/core/geoip.dat https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/${version}/geoip.dat
 cd
 
 #profile
